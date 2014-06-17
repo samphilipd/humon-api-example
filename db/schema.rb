@@ -34,15 +34,16 @@ ActiveRecord::Schema.define(version: 20140617180401) do
 
   create_table "events", force: true do |t|
     t.datetime "ended_at"
+    t.string   "address"
     t.string   "name",       null: false
-    t.integer  "place_id",   null: false
+    t.float    "lat",        null: false
+    t.float    "lon",        null: false
     t.datetime "started_at", null: false
     t.integer  "user_id",    null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_index "events", ["place_id"], name: "index_events_on_place_id", using: :btree
   add_index "events", ["user_id"], name: "index_events_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
