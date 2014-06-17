@@ -15,13 +15,8 @@ FactoryGirl.define do
     Time.zone.now + n.hours
   end
 
-  sequence :token do
-    SecureRandom.hex(3)
-  end
-
-  factory :attendance do
-    event
-    user
+  sequence :facebook_id do |n|
+    "id #{n}"
   end
 
   factory :event do
@@ -33,6 +28,9 @@ FactoryGirl.define do
   end
 
   factory :user do
-    device_token { generate(:token) }
+    facebook_id
+    first_name :name
+    last_name :name
+    image_url :url
   end
 end
