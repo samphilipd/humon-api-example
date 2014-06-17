@@ -21,6 +21,13 @@ gem 'title'
 gem 'uglifier'
 gem 'unicorn'
 
+# Fast JSON parser
+gem 'oj'
+
+# HAML and Json generator
+gem 'haml-rails'
+gem 'jbuilder'
+
 group :development do
   gem 'foreman'
   gem 'spring'
