@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140617180401) do
+ActiveRecord::Schema.define(version: 20140617194058) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,14 +47,11 @@ ActiveRecord::Schema.define(version: 20140617180401) do
   add_index "events", ["user_id"], name: "index_events_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
-    t.string   "facebook_id", null: false
-    t.string   "first_name",  null: false
-    t.string   "last_name",   null: false
-    t.string   "image_url",   null: false
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.string   "device_token"
   end
 
-  add_index "users", ["facebook_id"], name: "index_users_on_facebook_id", using: :btree
+  add_index "users", ["device_token"], name: "index_users_on_device_token", unique: true, using: :btree
 
 end

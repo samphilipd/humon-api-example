@@ -19,6 +19,10 @@ FactoryGirl.define do
     "id #{n}"
   end
 
+  sequence :token do
+    SecureRandom.hex(3)
+  end
+
   factory :event do
     lat
     lon
@@ -28,9 +32,6 @@ FactoryGirl.define do
   end
 
   factory :user do
-    facebook_id
-    first_name :name
-    last_name :name
-    image_url :url
+    device_token { generate(:token) }
   end
 end

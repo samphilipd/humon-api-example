@@ -77,6 +77,9 @@ GEM
     factory_girl_rails (4.4.1)
       factory_girl (~> 4.4.0)
       railties (>= 3.0.0)
+    figaro (0.7.0)
+      bundler (~> 1.0)
+      rails (>= 3, < 5)
     flutie (2.0.0)
     foreman (0.71.0)
       dotenv (~> 0.11.1)
@@ -227,6 +230,7 @@ DEPENDENCIES
   dotenv-rails
   email_validator
   factory_girl_rails
+  figaro
   flutie
   foreman
   formulaic
