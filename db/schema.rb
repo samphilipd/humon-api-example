@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140617135058) do
+ActiveRecord::Schema.define(version: 20140617175416) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,5 +31,16 @@ ActiveRecord::Schema.define(version: 20140617135058) do
   end
 
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
+
+  create_table "users", force: true do |t|
+    t.string   "facebook_id", null: false
+    t.string   "first_name",  null: false
+    t.string   "last_name",   null: false
+    t.string   "image_url",   null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "users", ["facebook_id"], name: "index_users_on_facebook_id", using: :btree
 
 end
