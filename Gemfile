@@ -27,6 +27,7 @@ gem 'oj'
 # HAML and Json generator
 gem 'haml-rails'
 gem 'jbuilder'
+gem 'geocoder'
 
 group :development do
   gem 'foreman'

@@ -88,6 +88,7 @@ GEM
       activesupport
       capybara
       i18n
+    geocoder (1.2.1)
     haml (4.0.5)
       tilt
     haml-rails (0.5.3)
@@ -234,6 +235,7 @@ DEPENDENCIES
   flutie
   foreman
   formulaic
+  geocoder
   haml-rails
   high_voltage
   jbuilder
