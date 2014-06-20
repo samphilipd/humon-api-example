@@ -32,4 +32,15 @@ describe 'GET /v1/events/nearests?lat=&lon=&radius=' do
       }
     ])
   end
+
+  it 'returns a sensible error message when no event is found' do
+    lat = 37.771098
+    lon = -122.430782
+    radius = 1
+
+    get "/v1/events/nearests?lat=#{lat}&lon=#{lon}&radius=#{radius}"
+
+    expect(response_json).to eq({ 'message' => 'No Events Found' })
+    expect(response.code.to_i).to eq 200
+  end
 end
