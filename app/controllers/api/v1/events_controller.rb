@@ -17,11 +17,31 @@ class Api::V1::EventsController < ApiController
     end
   end
 
+  def update
+    @event = Event.find(params[:id])
+
+    if @event.update(event_params)
+      render
+    else
+      render json: {
+        message: 'Validation Failed',
+        errors: @event.errors.full_messages
+      }, status: 422
+    end
+  end
+
   private
 
   def event_params
-    params.permit(:address, :ended_at, :lat, :lon, :name, :started_at)
-      .merge(owner: user)
+    {
+      address: params[:address],
+      ended_at: params[:ended_at],
+      lat: params[:lat],
+      lon: params[:lon],
+      name: params[:name],
+      started_at: params[:started_at],
+      owner: user
+    }
   end
 
   def user
